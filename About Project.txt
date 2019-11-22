@@ -1,0 +1,24 @@
+﻿1-Milestone:
+	- Project have 8 models: Category, Classroom, Course, Director, Group, Section, Student, Teacher.
+	
+	- Relationships:
+		~ one-to-one: Director and Section, Section and Classroom.
+		~ one-to-many: Category and Section, Section and Teacher.
+		~ many-to-many: Group and Courses;
+
+2-Milestone:
+	- Project have:
+		~ Remote validation.
+		~ implement IValidatableObject.
+		~ Validation attributes.
+
+
+4-Milestone: 
+	- Project have:
+		~ authorization and authentication with asp.net core Identity.
+		~ Role based authorization.s
+
+	- Roles:
+		~ admin: can access to Change Roles and all operations of Models except model "Student";
+		~ user: can access to all operations of Models except model "Student";
+		~ teacher: can access only to change Student.

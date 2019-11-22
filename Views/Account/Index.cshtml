@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Project.Models.User>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+@if (User.Identity.IsAuthenticated)
+{
+    <br>
+    <br>
+    @foreach (var user in Model)
+    {
+
+        if (user.UserName.Equals(User.Identity.Name))
+        {
+
+            <h4>
+                Welcome
+                <p>@user.UserName</p>
+                <p>@user.FullName</p>
+            </h4>
+            <br>
+
+
+            <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@user.Id">Change Fullname</a>
+            <a class="btn btn-sm btn-primary" asp-action="ChangePassword" asp-route-id="@user.Id">Change password</a>
+        }
+
+
+    }
+
+  
+
+
+
+    <br>
+    <br>
+    <form method="post" asp-controller="Account" asp-action="LogOff">
+        <input type="submit" value="Выход" />
+    </form>
+}
+else
+{
+    <a asp-controller="Account" asp-action="Login">Вход</a>
+    <a asp-controller="Account" asp-action="Register">Регистрация</a>
+}
